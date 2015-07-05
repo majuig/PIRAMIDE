@@ -24,5 +24,20 @@ class Piramide:
         self._e2 = t
         self._f1 = u
 
-    def mostrara4():
-        print (self._a4)
+    def mostrara4(self):
+        return self._a4
+
+test = Piramide(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21)
+print(test.mostrara4())
+
+
+
+class animal():
+    def __init__(self,tipo):
+        self._tipo = tipo
+
+    def mostrar(self):
+        return self._tipo
+
+Rocky = animal("perro")
+print(Rocky.mostrar())

@@ -26,7 +26,29 @@ class Piramide:
         self._f1 = z[20]
 
     def mostrara4(self):
-        return self._a4
+        return self._f1
+
+class terna():
+
+"""
+    a
+b       c
+"""
+    def __init__ (self,a,b,c):
+        self._a = a
+        self._b = b
+        self._c = c
+
+    def resolver(self):
+        if(self._a == 0 and self._b != 0 and self._c !=0):
+            self._a = self._b + self._c
+        if(self._a != 0 and self._ b != 0  and self._c == 0):
+            self._c = self._a - self._b
+        if(self._a != 0 and self._b == 0 and self._c != 0):
+            self._b = self._a - self._c
+        if(self._a != 0 and self._b =! 0 and self._c != 0):
+            self._resuelto = True
+
 
 
 numeros = array("i", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21])

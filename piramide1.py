@@ -2,61 +2,66 @@
 from array import array
 
 class Piramide:
-    def __init__ (self, z):
-        self._a1 = z[0]
-        self._a2 = z[1]
-        self._a3 = z[2]
-        self._a4 = z[3]
-        self._a5 = z[4]
-        self._a6 = z[5]
-        self._b1 = z[6]
-        self._b2 = z[7]
-        self._b3 = z[8]
-        self._b4 = z[9]
-        self._b5 = z[10]
-        self._c1 = z[11]
-        self._c2 = z[12]
-        self._c3 = z[13]
-        self._c4 = z[14]
-        self._d1 = z[15]
-        self._d2 = z[16]
-        self._d3 = z[17]
-        self._e1 = z[18]
-        self._e2 = z[19]
-        self._f1 = z[20]
+    def __init__ (self, a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u):
+        self.a1 = a
+        self.a2 = b
+        self.a3 = c
+        self.a4 = d
+        self.a5 = e
+        self.a6 = f
+        self.b1 = g
+        self.b2 = h
+        self.b3 = i
+        self.b4 = j
+        self.b5 = k
+        self.c1 = l
+        self.c2 = m
+        self.c3 = n
+        self.c4 = o
+        self.d1 = p
+        self.d2 = q
+        self.d3 = r
+        self.e1 = s
+        self.e2 = t
+        self.f1 = u
 
-    def mostrara4(self):
-        return self._f1 #Para ver si anda
+class celda():
+    def __init__ (self, valor):
+        self.valor = valor
+    def modificar(self, NuevoValor):
+        self.valor = NuevoValor
+    def MostrarValorCelda(self):
+        return self.valor
+
 
 class terna():
-
 
 #    a
 #b       c
 
 
     def __init__ (self,b,c,a):
-        self._a = a
-        self._b = b
-        self._c = c
+        self.a = a
+        self.b = b
+        self.c = c
         self.resuelto = False
 
     def resolver(self):
-        if(self._a == 0 and self._b != 0 and self._c !=0):
-            self._a = self._b + self._c
-        if(self._a != 0 and self._b != 0  and self._c == 0):
-            self._c = self._a - self._b
-        if(self._a != 0 and self._b == 0 and self._c != 0):
-            self._b = self._a - self._c
-        if(self._a != 0 and self._b != 0 and self._c != 0):
+        if(self.a.valor == 0 and self.b.valor != 0 and self.c.valor !=0):
+            self.a.modificar(self.b.valor + self.c.valor)
+        if(self.a.valor != 0 and self.b.valor != 0  and self.c.valor == 0):
+            self.c.modificar(self.a.valor - self.b.valor)
+        if(self.a.valor != 0 and self.b.valor == 0 and self.c.valor != 0):
+            self.b.modificar(self.a.valor - self.c.valor)
+        if(self.a.valor != 0 and self.b.valor != 0 and self.c.valor != 0):
             self.resuelto = True
 
     def mostrara(self):
-        return self._a
+        return self.a.valor
     def mostrarb(self):
-        return self._b
+        return self.b.valor
     def mostrarc(self):
-        return self._c
+        return self.c.valor
 
 class subtriangulo3():
 #   a
@@ -194,55 +199,52 @@ class subtriangulo5():
 
 
 _AlgoResuelto = 0
-numeros = array("i", [0,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21])
-test = Piramide(numeros)
 
-terna1 = terna(numeros[0],numeros[1],numeros[6])
-terna2 = terna(numeros[1],numeros[2],numeros[7])
-terna3 = terna(numeros[2],numeros[3],numeros[8])
-terna4 = terna(numeros[3],numeros[4],numeros[9])
-terna5 = terna(numeros[4],numeros[5],numeros[10])
-terna6 = terna(numeros[6],numeros[7],numeros[11])
-terna7 = terna(numeros[7],numeros[8],numeros[12])
-terna8 = terna(numeros[8],numeros[9],numeros[13])
-terna9 = terna(numeros[9],numeros[10],numeros[14])
-terna10 = terna(numeros[11],numeros[12],numeros[15])
-terna11 = terna(numeros[12],numeros[13],numeros[16])
-terna12 = terna(numeros[13],numeros[14],numeros[17])
-terna13 = terna(numeros[15],numeros[16],numeros[18])
-terna14 = terna(numeros[16],numeros[17],numeros[19])
-terna15 = terna(numeros[18],numeros[19],numeros[20])
+#Instanciar celdas
 
-subt3_1 = subtriangulo3(numeros[11],numeros[6],numeros[7],numeros[0],numeros[1],numeros[2])
-subt3_2 = subtriangulo3(numeros[12],numeros[7],numeros[8],numeros[1],numeros[2],numeros[3])
-subt3_3 = subtriangulo3(numeros[13],numeros[8],numeros[9],numeros[2],numeros[3],numeros[4])
-subt3_4 = subtriangulo3(numeros[14],numeros[9],numeros[10],numeros[3],numeros[4],numeros[5])
-subt3_5 = subtriangulo3(numeros[15],numeros[11],numeros[12],numeros[6],numeros[7],numeros[8])
-subt3_6 = subtriangulo3(numeros[16],numeros[12],numeros[13],numeros[7],numeros[8],numeros[9])
-subt3_7 = subtriangulo3(numeros[17],numeros[13],numeros[14],numeros[8],numeros[9],numeros[10])
-subt3_8 = subtriangulo3(numeros[18],numeros[15],numeros[16],numeros[11],numeros[12],numeros[13])
-subt3_9 = subtriangulo3(numeros[19],numeros[16],numeros[17],numeros[12],numeros[13],numeros[14])
-subt3_10 = subtriangulo3(numeros[20],numeros[18],numeros[19],numeros[15],numeros[16],numeros[17])
+#Instanciar Piramide
 
+#Instanciando todas las Ternas
+terna0 = terna(celda0.valor,celda1.valor,celda6.valor)
+terna1 = terna(celda1.valor,celda2.valor,celda7.valor)
+terna2 = terna(celda2.valor,celda3.valor,celda8.valor)
+terna3 = terna(celda3.valor,celda4.valor,celda9.valor)
+terna4 = terna(celda4.valor,celda5.valor,celda10.valor)
+terna5 = terna(celda6.valor,celda7.valor,celda11.valor)
+terna6 = terna(celda7.valor,celda8.valor,celda12.valor)
+terna7 = terna(celda8.valor,celda9.valor,celda13.valor)
+terna8 = terna(celda9.valor,celda10.valor,celda14.valor)
+terna9 = terna(celda11.valor,celda12.valor,celda15.valor)
+terna10 = terna(celda12.valor,celda13.valor,celda16.valor)
+terna11 = terna(celda13.valor,celda14.valor,celda17.valor)
+terna12 = terna(celda15.valor,celda16.valor,celda18.valor)
+terna13 = terna(celda16.valor,celda17.valor,celda19.valor)
+terna14 = terna(celda18.valor,celda19.valor,celda20.valor)
 
-subt4_1 = subtriangulo4(numeros[15],numeros[11],numeros[12],numeros[6],numeros[7],numeros[8],numeros[0],numeros[1],numeros[2],numeros[3])
+#Intanciando todos los Subtriangulos de base 3
+subt3_1 = subtriangulo3(celda11.valor,celda6.valor,celda7.valor,celda0.valor,celda1.valor,celda2.valor)
+subt3_2 = subtriangulo3(celda12.valor,celda7.valor,celda8.valor,celda1.valor,celda2.valor,celda3.valor)
+subt3_3 = subtriangulo3(celda13.valor,celda8.valor,celda9.valor,celda2.valor,celda3.valor,celda4.valor)
+subt3_4 = subtriangulo3(celda14.valor,celda9.valor,celda10.valor,celda3.valor,celda4.valor,celda5.valor)
+subt3_5 = subtriangulo3(celda15.valor,celda11.valor,celda12.valor,celda6.valor,celda7.valor,celda8.valor)
+subt3_6 = subtriangulo3(celda16.valor,celda12.valor,celda13.valor,celda7.valor,celda8.valor,celda9.valor)
+subt3_7 = subtriangulo3(celda17.valor,celda13.valor,celda14.valor,celda8.valor,celda9.valor,celda10.valor)
+subt3_8 = subtriangulo3(celda18.valor,celda15.valor,celda16.valor,celda11.valor,celda12.valor,celda13.valor)
+subt3_9 = subtriangulo3(celda19.valor,celda16.valor,celda17.valor,celda12.valor,celda13.valor,celda14.valor)
+subt3_10 = subtriangulo3(celda20.valor,celda18.valor,celda19.valor,celda15.valor,celda16.valor,celda17.valor)
 
-subt4_2 = subtriangulo4(numeros[16],numeros[12],numeros[13],numeros[7],numeros[8],numeros[9],numeros[1],numeros[2],numeros[3],numeros[4])
+#Instanciando todos los subtriangulos de base 4
+subt4_1 = subtriangulo4(celda15.valor,celda11.valor,celda12.valor,celda6.valor,celda7.valor,celda8.valor,celda0.valor,celda1.valor,celda2.valor,celda3.valor)
+subt4_2 = subtriangulo4(celda16.valor,celda12.valor,celda13.valor,celda7.valor,celda8.valor,celda9.valor,celda1.valor,celda2.valor,celda3.valor,celda4.valor)
+subt4_3 = subtriangulo4(celda17.valor,celda13.valor,celda14.valor,celda9.valor,celda10.valor,celda2.valor,celda3.valor,celda4.valor,celda5.valor,celda3.valor)
+subt4_4 = subtriangulo4(celda18.valor,celda15.valor,celda16.valor,celda11.valor,celda12.valor,celda13.valor,celda6.valor,celda7.valor,celda8.valor,celda9.valor)
+subt4_5 = subtriangulo4(celda19.valor,celda16.valor,celda17.valor,celda12.valor,celda13.valor,celda14.valor,celda7.valor,celda8.valor,celda9.valor,celda10.valor)
+subt4_6 = subtriangulo4(celda20.valor,celda18.valor,celda19.valor,celda15.valor,celda16.valor,celda17.valor,celda11.valor,celda12.valor,celda13.valor,celda14.valor)
 
-subt4_3 = subtriangulo4(numeros[17],numeros[13],numeros[14],numeros[8],numeros[9],numeros[10],numeros[2],numeros[3],numeros[4],numeros[5])
-
-subt4_4 = subtriangulo4(numeros[18],numeros[15],numeros[16],numeros[11],numeros[12],numeros[13],numeros[6],numeros[7],numeros[8],numeros[9])
-
-subt4_5 = subtriangulo4(numeros[19],numeros[16],numeros[17],numeros[12],numeros[13],numeros[14],numeros[7],numeros[8],numeros[9],numeros[10])
-
-subt4_6 = subtriangulo4(numeros[20],numeros[18],numeros[19],numeros[15],numeros[16],numeros[17],numeros[11],numeros[12],numeros[13],numeros[14])
-
-
-subt5_1 = subtriangulo5(numeros[18],numeros[15],numeros[16],numeros[11],numeros[12],numeros[13],numeros[6],numeros[7],numeros[8],numeros[9],numeros[0],numeros[1],numeros[2],numeros[3],numeros[4])
-
-subt5_2 = subtriangulo5(numeros[19],numeros[16],numeros[17],numeros[12],numeros[13],numeros[14],numeros[7],numeros[8],numeros[9],numeros[10],numeros[1],numeros[2],numeros[3],numeros[4],numeros[5])
-
-subt5_3 = subtriangulo5(numeros[20],numeros[18],numeros[19],numeros[15],numeros[16],numeros[17],numeros[11],numeros[12],numeros[13],numeros[14],numeros[6],numeros[7],numeros[8],numeros[9],numeros[10])
+#Instanciando todos los Subtriangulos de base 5
+subt5_1 = subtriangulo5(celda18.valor,celda15.valor,celda16.valor,celda11.valor,celda12.valor,celda13.valor,celda6.valor,celda7.valor,celda8.valor,celda9.valor,celda0.valor,celda1.valor,celda2.valor,celda3.valor,celda4.valor)
+subt5_1 = subtriangulo5(celda19.valor,celda16.valor,celda17.valor,celda12.valor,celda13.valor,celda14.valor,celda7.valor,celda8.valor,celda9.valor,celda10.valor,celda1.valor,celda2.valor,celda3.valor,celda4.valor,celda5.valor)
+subt5_1 = subtriangulo5(celda20.valor,celda18.valor,celda19.valor,celda15.valor,celda16.valor,celda17.valor,celda11.valor,celda12.valor,celda13.valor,celda14.valor,celda6.valor,celda7.valor,celda8.valor,celda9.valor,celda10.valor)
 
 print("Hola")
 

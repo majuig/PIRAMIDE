@@ -28,10 +28,10 @@ class Piramide:
 
     def completo(self):
         global AlgoResuelto
-        if(self.a1.valor != 0 and self.a2.valor != 0 and self.a3.valor != 0 and self.a4.valor != 0 and self.a5.valor != 0
-         and self.a6.valor != 0 and self.b1.valor != 0 and self.b2.valor != 0 and self.b3.valor != 0 and self.b4.valor != 0
-         and self.b5.valor != 0 and self.c1.valor != 0 and self.c2.valor != 0 and self.c3.valor != 0 and self.c4.valor != 0
-         and self.d1.valor != 0 and self.d2.valor != 0 and self.d3.valor != 0 and self.e1.valor != 0 and self.e2.valor != 0
+        if(self.a1.valor > 0 and self.a2.valor > 0 and self.a3.valor > 0 and self.a4.valor > 0 and self.a5.valor > 0
+         and self.a6.valor > 0 and self.b1.valor > 0 and self.b2.valor > 0 and self.b3.valor > 0 and self.b4.valor > 0
+         and self.b5.valor > 0 and self.c1.valor > 0 and self.c2.valor > 0 and self.c3.valor > 0 and self.c4.valor > 0
+         and self.d1.valor > 0 and self.d2.valor > 0 and self.d3.valor > 0 and self.e1.valor > 0 and self.e2.valor > 0
          and self.f1.valor):
          AlgoResuelto = 2
         else:
@@ -40,7 +40,7 @@ class Piramide:
     def base16(self):
         global AlgoResuelto
         if((self.a1.valor + self.a2.valor + self.a3.valor + self.a4.valor + self.a5.valor + self.a6.valor) == 21 ):
-            if(self.a1.valor < 7 and self.a2.valor < 7 and self.a3.valor < 7 and self.a4.valor < 7 andself.a5.valor < 7 andself.a6.valor < 7):
+            if(self.a1.valor < 7 and self.a2.valor < 7 and self.a3.valor < 7 and self.a4.valor < 7 and self.a5.valor < 7 and self.a6.valor < 7):
                 AlgoResuelto = 2
         else:
             AlgoResuelto = 3
@@ -259,26 +259,26 @@ class subtriangulo5():
 
 #Instanciar celdas
 celda0 = celda(0)  #1 #Fila A BASE
-celda1 = celda(0)   #2
-celda2 = celda(0)   #3
-celda3 = celda(0)   #4
+celda1 = celda(2)   #2
+celda2 = celda(3)   #3
+celda3 = celda(4)   #4
 celda4 = celda(0)   #5
 celda5 = celda(0)   #6
 celda6 = celda(0)   #3 #Fila B
 celda7 = celda(0)   #5
-celda8 = celda(0)   #7
+celda8 = celda(7)   #7
 celda9 = celda(0)   #9
 celda10 = celda(0) #11
 celda11 = celda(0)  #8  #Fila C
-celda12 = celda(0) #12
-celda13 = celda(16) #16
+celda12 = celda(12) #12
+celda13 = celda(0) #16
 celda14 = celda(0) #20
 celda15 = celda(20)  #20  #Fila D
 celda16 = celda(0) #28
 celda17 = celda(36) #36
 celda18 = celda(0)  #48  #Fila E
-celda19 = celda(64)  #64
-celda20 = celda(0)   #112  #Fila F PUNTA
+celda19 = celda(0)  #64
+celda20 = celda(112)   #112  #Fila F PUNTA
 
 #Instanciar Piramide
 ThePiramide = Piramide(celda0,celda1,celda2,celda3,celda4,celda5,celda6,celda7,celda8,celda9,celda10,celda11,celda12,celda13,celda14,celda15,celda16,celda17,celda18,celda19,celda20)
@@ -410,7 +410,7 @@ ThePiramide.completo()
 ThePiramide.base16()
 
 if(AlgoResuelto == 2):
-    print("------Valores de las celdas RESUELTAS-------")
+    print("------Valores de la piramide RESUELTA-------")
     #cimacornudo
     print(celda20.MostrarValorCelda())
 
@@ -446,7 +446,51 @@ if(AlgoResuelto == 2):
     print(celda4.MostrarValorCelda(), end=' ')
     print(celda5.MostrarValorCelda())
 else:
-    print("No se puede resolver la piramide")
+    print("No se puede resolver la piramide o faltan datos para hacerlo")
+
+    while(True):
+        eleccion = input("Ingrese Y para ver hasta donde se pudo resolver la piramide y N para salir: ")
+        if(eleccion == 'Y' or eleccion == 'y'):
+            print("")
+            print("------Valores de las celdas RESUELTAS-------")
+            #cimacornudo
+            print(celda20.MostrarValorCelda())
+
+            #quintafila
+            print(celda18.MostrarValorCelda(), end=' ')
+            print(celda19.MostrarValorCelda())
+
+            #cuartafila
+            print(celda15.MostrarValorCelda(), end=' ')
+            print(celda16.MostrarValorCelda(), end=' ')
+            print(celda17.MostrarValorCelda())
+
+
+            #tercerfila
+            print(celda11.MostrarValorCelda(), end=' ')
+            print(celda12.MostrarValorCelda(), end=' ')
+            print(celda13.MostrarValorCelda(), end=' ')
+            print(celda14.MostrarValorCelda())
+
+            #segundafila
+
+            print(celda6.MostrarValorCelda(), end=' ')
+            print(celda7.MostrarValorCelda(), end=' ')
+            print(celda8.MostrarValorCelda(), end=' ')
+            print(celda9.MostrarValorCelda(), end=' ')
+            print(celda10.MostrarValorCelda())
+
+            #base
+            print(celda0.MostrarValorCelda(), end=' ')
+            print(celda1.MostrarValorCelda(), end=' ')
+            print(celda2.MostrarValorCelda(), end=' ')
+            print(celda3.MostrarValorCelda(), end=' ')
+            print(celda4.MostrarValorCelda(), end=' ')
+            print(celda5.MostrarValorCelda())
+            break
+
+        if(eleccion == 'N' or eleccion == 'n'):
+            break
 
 
 """
